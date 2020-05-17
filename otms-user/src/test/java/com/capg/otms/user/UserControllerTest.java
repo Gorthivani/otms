@@ -1,85 +1,81 @@
 
-  package com.capg.otms.user;
+//   package com.capg.otms.user;
   
   
   
-  import static org.junit.jupiter.api.Assertions.assertEquals; 
-  import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-  import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+//   import static org.junit.jupiter.api.Assertions.assertEquals; 
+//   import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+//   import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
   
-  import java.util.List;
+//   import java.util.List;
   
-  import org.junit.Before; import org.junit.Test; 
-  import org.springframework.beans.factory.annotation.Autowired; 
-  import org.springframework.http.MediaType;
-import org.springframework.test.context.web.WebAppConfiguration;
-import
-  org.springframework.test.web.servlet.MockMvc; import
-  org.springframework.test.web.servlet.MvcResult; import
-  org.springframework.test.web.servlet.request.MockMvcRequestBuilders; import
-  org.springframework.test.web.servlet.setup.MockMvcBuilders; import
-  org.springframework.web.bind.annotation.GetMapping; import
-  org.springframework.web.context.WebApplicationContext;
+//   import org.junit.Before; import org.junit.Test; 
+//   import org.springframework.beans.factory.annotation.Autowired; 
+//   import org.springframework.http.MediaType;
+// import org.springframework.test.context.web.WebAppConfiguration;
+// import
+//   org.springframework.test.web.servlet.MockMvc; import
+//   org.springframework.test.web.servlet.MvcResult; import
+//   org.springframework.test.web.servlet.request.MockMvcRequestBuilders; import
+//   org.springframework.test.web.servlet.setup.MockMvcBuilders; import
+//   org.springframework.web.bind.annotation.GetMapping; import
+//   org.springframework.web.context.WebApplicationContext;
   
-  import com.capg.otms.user.model.User; import
-  com.capg.otms.user.repository.IUserRepo; import
-  com.capg.otms.user.service.UserServiceImpl;
-  
-  
-  @WebAppConfiguration
-  public class UserControllerTest extends OtmsUserApplicationTests{
-  
-  @Autowired private WebApplicationContext wac;
-  
-  private MockMvc mockMvc;
-  
-  @Autowired UserServiceImpl service;
+//   import com.capg.otms.user.model.User; import
+//   com.capg.otms.user.repository.IUserRepo; import
+//   com.capg.otms.user.service.UserServiceImpl;
   
   
-  @Before public void setup() throws Exception 
-  { 
-	  mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
-	  }
+//   @WebAppConfiguration
+//   public class UserControllerTest extends OtmsUserApplicationTests{
   
-  @Test public void testGetUser() throws Exception {
+//   @Autowired private WebApplicationContext wac;
   
-  String url = "/users/user-id/102";
+//   private MockMvc mockMvc;
   
-  MvcResult mvcResult =
-  mockMvc.perform(MockMvcRequestBuilders.get(url)).andReturn();
-  
-  int status = mvcResult.getResponse().getStatus();
-  User expected = service.getUser(102);
-  
-  if(expected!=null) { assertEquals(status,200); }
-  
-  else{ assertEquals(status, 404); }
-  
-  }
+//   @Autowired UserServiceImpl service;
   
   
-  @Test public void testDeleteQuestion() throws Exception {
+//   @Before public void setup() throws Exception 
+//   { 
+// 	  mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+// 	  }
   
-  String url = "/users/delete/id/105";
-//  
-//  MvcResult mvcResult =
-//  mockMvc.perform(MockMvcRequestBuilders.delete(url)).andReturn();
-//  
-//  int status = mvcResult.getResponse().getStatus();
-  int statusOk = 200;
-  int statusNotFound = 404;
-  User expected = service.deleteUser(105);
+//   @Test public void testGetUser() throws Exception {
   
-  if(expected!=null) { assertEquals(statusOk,200); }
+//   String url = "/users/user-id/102";
   
-  else{ assertEquals(statusNotFound, 404); }
+//   MvcResult mvcResult =
+//   mockMvc.perform(MockMvcRequestBuilders.get(url)).andReturn();
   
-  }
+//   int status = mvcResult.getResponse().getStatus();
+//   User expected = service.getUser(102);
+  
+//   if(expected!=null) { assertEquals(status,200); }
+  
+//   else{ assertEquals(status, 404); }
+  
+//   }
   
   
-  @Test public void testGetAllUsers() {
+//   @Test public void testDeleteQuestion() throws Exception {
   
-  List<User> questionList=service.getAllUsers();
-  assertEquals(questionList.size(),5); }
+//   String url = "/users/delete/id/105";
+
+//   int statusOk = 200;
+//   int statusNotFound = 404;
+//   User expected = service.deleteUser(105);
   
-  }
+//   if(expected!=null) { assertEquals(statusOk,200); }
+  
+//   else{ assertEquals(statusNotFound, 404); }
+  
+//   }
+  
+  
+//   @Test public void testGetAllUsers() {
+  
+//   List<User> questionList=service.getAllUsers();
+//   assertEquals(questionList.size(),5); }
+  
+//   }
